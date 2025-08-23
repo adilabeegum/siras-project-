@@ -18,8 +18,8 @@
     <div class="nav-links">
       <button onclick="highlightSection('about')">About</button>
       <button onclick="highlightSection('features')">Features</button>
-      <button onclick="highlightSection('team')">Team</button>
-      <button class="sign">Sign In</button>
+     <button onclick="highlightSection('team')">Team</button>
+      <button id="signinBtn">Sign In</button>
       <button id="signupBtn">Sign Up</button>
     </div>
     <div id="google_translate_element"></div>
@@ -38,7 +38,7 @@
   <div class="about" id="about">
     <h2>About SIRAS</h2>
     <p class="line">
-      SIRAS is a web-based inventory and billing system designed for small businesses, cafés, and local stores. 
+      SIRAS (Smart Inventory Restock Alert System) is a web-based inventory and billing system designed for small businesses, cafés, and local stores. 
       It helps manage stock, perform billing, and automatically notify restocking needs via web or SMS. 
       The system supports multi-user access and smart AI suggestions for efficient inventory control.
     </p>
@@ -57,11 +57,23 @@
     </div>
   </div>
 
+  <!-- Team Members -->
+    <div class="team" id="team">
+    <h2>Team</h2>
+    <div class="feature-grid">
+      <div class="feature-box"><h4>Inventory Tracking</h4><p>Manage product stock with add, edit, and delete options.</p></div>
+      <div class="feature-box"><h4>Billing System</h4><p>Generate printable bills with automatic price calculations.</p></div>
+      <div class="feature-box"><h4>Restock Alerts</h4><p>Low stock alerts via web or SMS notifications.</p></div>
+      <div class="feature-box"><h4>Smart Suggestions</h4><p>AI-based trends & fast/slow selling analysis.</p></div>
+     
+    </div>
+  </div>
+
   <!-- Footer -->
   <div class="bottom">
     <p>&copy 2025 SIRAS - Smart Inventory Restock Alert System</p>
-    <div class="team" id="team">
-      <p><strong>Team Members:</strong> ADILA BEEGUM | NISMA K K | ANANTHU S MADHAVAN | SUHAIL V P </p>
+    <div>
+      <p>WEBSITE MADE WITH <strong>SIRAS</strong></p>
     </div>
   </div>
 
@@ -103,7 +115,7 @@
       hero.style.backgroundPosition = `${x}% ${y}%`;
     });
      // Simple scroll animation script
-    const sections = document.querySelectorAll('.about, .features');
+    const sections = document.querySelectorAll('.about, .features, .team');
     window.addEventListener('scroll', () => {
       const triggerBottom = window.innerHeight * 0.85;
       sections.forEach(sec => {
@@ -118,7 +130,11 @@
   </script>
   <script>
   document.getElementById('signupBtn').addEventListener('click', function() {
-    window.location.href = 'sign-up/eg-sign.html';
+    window.location.href = 'sign-up/signup.html';
+  });
+
+    document.getElementById('signinBtn').addEventListener('click', function() {
+    window.location.href = 'sign-in/signin.html';
   });
 </script>
 
