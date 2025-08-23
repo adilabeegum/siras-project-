@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - SIRAS</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+
+
+
+<body class="signup-page">
+
+    <!-- Navbar -->
+    <div>
+        <div class="navbar">
+            <div class="logo" onclick="window.location.href='../index.html'">
+                <img src="../imgs/SIRAS-LOGO.png" alt="SIRAS Logo">
+            </div>
+            <div class="nav-links">
+                <button id="signinBtn">Sign In</button>
+                <button id="signupBtn">Sign Up</button>
+            </div>
+            <div id="google_translate_element"></div>
+        </div>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div class="container">
+        <div class="left-section">
+            <h1>Welcome to our <br><span>community</span></h1>
+            <p class="para">Start your new journey with us <br>and join our community</p>
+            <img src="../imgs/signup-img.png" alt="Illustration" class="illustration">
+        </div>
+
+<div class="right-section">
+  <h1>Create Your Account</h1>
+  <div class="role-selection">
+    <button type="button" class="buttons role-btn" data-role="owner">OWNER</button>
+    <button type="button" class="buttons role-btn" data-role="staff">STAFF</button>
+  </div>
+
+  <form id="signupForm">
+    <!-- Hidden input for role -->
+    <input type="hidden" name="role" id="roleInput">
+
+    <input type="text" placeholder="Shop ID" required>
+    <input type="text" placeholder="Mobile Number" required>
+    <input type="email" placeholder="Email Address" required>
+    <input type="text" placeholder="User Name" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+
+    <button type="submit" class="signup-btn">SIGN UP</button>
+  </form>
+</div>
+
+
+    </div>
+
+    <!-- Google Translate Script -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+
+    </script>
+  <script>
+     document.getElementById('signinBtn').addEventListener('click', function() {
+    window.location.href = '../sign-in/signin.html';
+  });
+</script>
+
+<script>
+  const roleButtons = document.querySelectorAll(".role-btn");
+  const roleInput = document.getElementById("roleInput");
+  let selectedRole = "";
+
+  roleButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      // Reset active state
+      roleButtons.forEach(btn => btn.classList.remove("active"));
+      // Set active for clicked
+      button.classList.add("active");
+      // Save role
+      selectedRole = button.dataset.role;
+      roleInput.value = selectedRole; // hidden field
+    });
+  });
+
+  const signupForm = document.getElementById("signupForm");
+  const passwordInput = document.getElementById("password");
+  const confirmPasswordInput = document.getElementById("confirmPassword");
+  const passwordError = document.getElementById("passwordError");
+
+  // On form submit
+  signupForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    // Redirect by role
+    if (selectedRole === "owner") {
+      window.location.href = "../owner/owner.html";
+    } else if (selectedRole === "staff") {
+      window.location.href = "../staff/staff.html";
+    }
+  });
+
+  // Navbar Sign-in redirect
+  document.getElementById('signinBtn').addEventListener('click', function() {
+    window.location.href = '../sign-in/signin.html';
+  });
+</script>
+
+
+</body>
+</html>
